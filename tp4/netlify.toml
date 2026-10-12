@@ -1,0 +1,31 @@
+# netlify.toml — Configuración de deploy para Coffea Landing
+
+[build]
+  publish = "."
+
+# Headers de seguridad globales
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Caché inmutable para assets e imágenes
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Caché inmutable para CSS
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Redirección de 404 personalizada
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

@@ -1,0 +1,119 @@
+@layer components {
+  .products {
+    background-color: var(--color-bg);
+    padding-block: var(--space-56);
+    overflow: hidden;
+  }
+
+  @media (min-width: 1024px) {
+    .products {
+      padding-block: 64px 80px;
+    }
+  }
+
+  .products__title {
+    margin-bottom: var(--space-40);
+  }
+
+  @media (min-width: 1024px) {
+    .products__title {
+      margin-bottom: 64px;
+    }
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  @media (min-width: 1440px) {
+    .carousel-wrapper {
+      max-width: var(--carousel-wrapper-max-w);
+    }
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-inline: var(--space-16);
+    padding-block: var(--space-8);
+  }
+
+  .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .carousel-track {
+      padding-inline: var(--carousel-padding-desktop);
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .carousel-track {
+      max-width: var(--carousel-max-w);
+      margin-inline: auto;
+      padding-inline: 0;
+      justify-content: flex-start;
+    }
+  }
+
+  .carousel-arrow {
+    display: none;
+    position: absolute;
+    top: calc(50% - var(--carousel-arrow-offset-top));
+    z-index: 10;
+    width: var(--size-arrow);
+    height: var(--size-arrow);
+    border-radius: var(--radius-circle);
+    background-color: var(--color-white);
+    color: var(--color-espresso);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  @media (min-width: 1024px) {
+    .carousel-arrow {
+      display: inline-flex;
+    }
+  }
+
+  .carousel-arrow:hover {
+    transform: scale(1.08);
+    background-color: var(--color-sand);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  }
+
+  .carousel-arrow--prev {
+    left: var(--space-16);
+  }
+
+  @media (min-width: 1440px) {
+    .carousel-arrow--prev {
+      left: var(--carousel-arrow-offset-xl);
+    }
+  }
+
+  .carousel-arrow--prev svg,
+  .carousel-arrow--prev img {
+    transform: rotate(180deg);
+  }
+
+  .carousel-arrow--next {
+    right: var(--space-16);
+  }
+
+  @media (min-width: 1440px) {
+    .carousel-arrow--next {
+      right: var(--carousel-arrow-offset-xl);
+    }
+  }
+}
